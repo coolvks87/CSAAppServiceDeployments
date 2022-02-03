@@ -55,7 +55,7 @@ namespace AzureCost_to_LogAnalytics
                     sharedKey: $"{workspacekey}",
                     logType: $"{logName}");
 
-                string newURL = "/" + scope + "/providers/Microsoft.CostManagement/query?api-version=2019-11-01&" + skipToken;
+                string newURL = "/" + scope + "/providers/Microsoft.CostManagement/query?api-version=2021-10-01&" + skipToken;
                 response = await client.PostAsync(newURL, new StringContent(myJson, Encoding.UTF8, "application/json"));
                 QueryResults result = JsonConvert.DeserializeObject<QueryResults>(response.Content.ReadAsStringAsync().Result);
 
